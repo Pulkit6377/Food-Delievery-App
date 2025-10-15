@@ -124,7 +124,7 @@ food-delivery-app/
 ### Payment Page
 ![Payment Page](./Screenshots/client/Payment.png)
 ### My Orders Page
-![MyOrders Page](./Screenshots/client/Myorders.png)
+![MyOrders Page](./Screenshots/client/Myorder.png)
 
 
 ## Admin
