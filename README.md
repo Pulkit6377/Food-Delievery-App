@@ -129,7 +129,7 @@ food-delivery-app/
 
 ## Admin
 
-### Ulpoad Page
+### Upload Page
 ![AdminUpload Page](./Screenshots/admin/AdminUpload.png)
 ### List Page
 ![AdminList Page](./Screenshots/admin/AdminList.png)
