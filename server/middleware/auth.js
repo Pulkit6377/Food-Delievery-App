@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken'
+import 'dotenv'
 
 const authMiddleware = async(req,res,next) => {
 
