@@ -14,7 +14,10 @@ const port = 4000
 
 //middleware
 app.use(express.json());
-app.use(cors())
+app.use(cors({
+  origin: "https://tomato-in.netlify.app/", // your Netlify URL
+  credentials: true
+}));
 
 //DB connection
 connectDB();
