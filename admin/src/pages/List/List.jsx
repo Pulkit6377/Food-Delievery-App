@@ -3,7 +3,7 @@ import './List.css'
 import axios from 'axios'
 import {toast} from 'react-toastify';
 
-const url = "http://localhost:4000"
+const url = "https://food-delievery-appp.onrender.com"
 
 const List = () => {
 

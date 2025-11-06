@@ -9,10 +9,9 @@ const url = "https://food-delievery-appp.onrender.com"
 const Verify = () => {
 
     const [searchParams,setSearchParams] = useSearchParams();
-    const success = searchParams.get("success")
-    const orderId = searchParams.get("orderId")
+    const orderId = req.body.orderId || req.query.orderId;
+    const success = req.body.success || req.query.success;
     const navigate = useNavigate();
-    const {URL} = useContext(StoreContext)
     
     const verifyPayment = async() =>{
         const respone = await axios.post(url+"/api/order/verify",{success,orderId});

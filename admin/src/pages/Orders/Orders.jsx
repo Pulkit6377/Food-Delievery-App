@@ -6,14 +6,14 @@ import { toast } from 'react-toastify'
 import { useEffect } from 'react'
 import { assets } from '../../assets/admin_assets/assets'
 
-const url = "http://localhost:4000"
+const url = "https://food-delievery-appp.onrender.com"
 
 const Orders = () => {
 
   const [orders,setOrders] = useState([]);
 
   const fetchAllOrders = async () =>{
-    const response = await axios.get(url+"/api/order/list");
+    const response = await axios.get(`${url}/api/order/list`);
     if(response.data.success){
       setOrders(response.data.data)
       console.log(response.data.data);
