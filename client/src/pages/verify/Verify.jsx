@@ -14,32 +14,44 @@ const Verify = () => {
 
     const verifyPayment = async () => {
         try {
-            const response = await axios.post(`${url}/api/order/verify`, {
-                success,
-                orderId
-            });
+            const token = localStorage.getItem("token");
 
-            if (response.data.success) {
+            console.log("VERIFY PAGE LOADED");
+            console.log("success:", success);
+            console.log("orderId:", orderId);
+            console.log("token:", token);
+
+            const res = await axios.post(
+                `${url}/api/order/verify`,
+                { success, orderId },
+                { headers: { token: token } }
+            );
+
+            console.log("VERIFY RESPONSE:", res.data);
+
+            if (res.data.success) {
                 navigate("/myorders");
             } else {
                 navigate("/");
             }
+
         } catch (err) {
-            console.log(err);
+            console.log("VERIFY ERROR:", err);
             navigate("/");
         }
     }
 
     useEffect(() => {
         verifyPayment();
-    }, [])
+    }, []);
 
     return (
         <div className='verify'>
             <div className="spinner"></div>
         </div>
-    )
-}
+    );
+};
 
 export default Verify;
+
 

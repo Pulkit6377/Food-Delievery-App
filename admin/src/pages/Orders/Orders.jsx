@@ -24,10 +24,12 @@ const Orders = () => {
   }
 
   const statusHandler = async(event,orderId) => {
+    const token = localStorage.getItem("token")
     const response = await axios.post(url+"/api/order/status",{
       orderId,
-      status:event.target.value
-    })
+      status:event.target.value},
+      { headers: { token } }
+    )
     if(response.data.success){
       await fetchAllOrders();
     }
