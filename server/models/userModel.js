@@ -12,15 +12,13 @@ const userSchema = new mongoose.Schema({
     },
     password: {
       type: String,
-      required: function () {
-        return this.authType === "local"; // password required ONLY for normal users
-      },
+      required:true
     },
-    authType: {
-      type: String,
-      enum: ["local", "google"],
-      default: "local",
-    },
+    // authType: {
+    //   type: String,
+    //   enum: ["local", "google"],
+    //   default: "local",
+    // },
     cartData:{
         type:Object,
         default:{}
