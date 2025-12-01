@@ -13,8 +13,6 @@ const Transporter = nodemailer.createTransport({
     }
 });
 
-export default Transporter;
-
 
 Transporter.verify((error, success) => {
     if (error) {
