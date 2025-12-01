@@ -73,7 +73,7 @@ const registerUser = async(req,res) =>{
     }
 }
 
-const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+// const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 // const googleLogin = async (req, res) => {
 //   try {
