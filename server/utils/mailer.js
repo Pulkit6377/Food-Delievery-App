@@ -1,18 +1,20 @@
-import dotenv from 'dotenv'
+import nodemailer from "nodemailer";
+import dotenv from "dotenv";
 
 dotenv.config();
 
-import nodemailer from "nodemailer";
-
 const Transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: true,
+    host: process.env.BREVO_HOST,
+    port: process.env.BREVO_PORT,
+    secure: false,          // Brevo uses STARTTLS over port 587
     auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS
+        user: process.env.BREVO_USER,
+        pass: process.env.BREVO_PASS
     }
 });
+
+export default Transporter;
+
 
 Transporter.verify((error, success) => {
     if (error) {
