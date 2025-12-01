@@ -44,6 +44,28 @@ const[data,setData] = useState({
     }
   }
 
+  const handleGoogleLogin = async (credentialResponse) => {
+    try {
+      const res = await axios.post(`${URL}/api/user/google-login`, {
+        token: credentialResponse.credential
+      });
+
+      if (res.data.success) {
+        setToken(res.data.token);
+        localStorage.setItem("token", res.data.token);
+        setShowLogin(false);
+      } else {
+        alert("Google Login Failed");
+      }
+
+    } catch (err) {
+      console.log(err);
+      alert("Google authentication error");
+    }
+  };
+
+
+
   return (
     <div className='login-popup'>
       <form onSubmit={onLogin} className="login-popoup-container">
@@ -57,6 +79,12 @@ const[data,setData] = useState({
             <input name='password' onChange={onChangeHandler} value={data.password} type="password" placeholder='Enter Password' required />
         </div>
         <button type='submit'> {currState==="Sign Up"?"Create Account":"Login"} </button>
+        <div style={{ marginTop: "20px", display: "flex", justifyContent: "center" }}>
+          <GoogleLogin
+            onSuccess={handleGoogleLogin}
+            onError={() => console.log("Google Login Failed")}
+          />
+        </div>
         <div className="login-popup-condition">
             <input type='checkbox' required />
             <p>By continuing, i agree to the terms of use & privacy policy</p>

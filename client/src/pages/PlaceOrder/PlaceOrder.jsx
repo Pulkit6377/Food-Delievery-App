@@ -22,7 +22,6 @@ const PlaceOrder = () => {
 
   })
 
-  console.log(data);
   
 
   const onChangehandler = (event) => {
